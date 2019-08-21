@@ -38,7 +38,7 @@
                             <img src="~/images/logo.png">
 
                             <!-- begin only show for desktop fersion-->
-                            <span>Портал Головинского района</span>
+                            <span onclick="location.href='..'">Портал Головинского района</span>
                             <!-- end -->
 
                         </div>
@@ -64,7 +64,8 @@
                     <a>
                         <div class="header_list_item_cabinet">
                             <i class="fa fa-user" aria-hidden="true"></i>
-                            <span>Личный кабинет</span>
+                            <span onclick="location.href='../Auth/ModalWindow'">Личный кабинет</span>
+                            @*<span onclick="showAuthWindow()">Личный кабинет</span>*@
                         </div>
                     </a>
                     <app-cabinet-user></app-cabinet-user>

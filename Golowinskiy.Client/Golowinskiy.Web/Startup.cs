@@ -10,6 +10,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Golowinskiy.Web.Context;
+using Microsoft.EntityFrameworkCore;
+using Golowinskiy.Web.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace Golowinskiy.Web
 {
@@ -22,12 +26,17 @@ namespace Golowinskiy.Web
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connection = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<GolowinskiyDBContext>(options =>
+                options.UseSqlServer(connection));
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<GolowinskiyDBContext>();
+            services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
+
             services.Configure<CookiePolicyOptions>(options =>
             {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
@@ -36,20 +45,11 @@ namespace Golowinskiy.Web
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-
-                var provider = new FileExtensionContentTypeProvider();
-                // Add .scss mapping
-                provider.Mappings[".scss"] = "text/css";
-                app.UseStaticFiles(new StaticFileOptions()
-                {
-                    ContentTypeProvider = provider
-                });
             }
             else
             {
@@ -59,7 +59,9 @@ namespace Golowinskiy.Web
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseDefaultFiles();
             app.UseCookiePolicy();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
