@@ -64,20 +64,19 @@ function RemoveAdditionalImage(i, numberImg) {
 
 function SaveProduct() {
 
-    let listAddtImgs = [];
-    let addtImgs = document.getElementById('addt-imgs');
-    let count = addtImgs.getElementsByTagName('div').length;
-
-    for (let i = 0; i < count - 1; i++) {
-        listAddtImgs[i] = $('#additionalPhoto' + (i + 1))[0].files[0];
-    }
-
     let formData = new FormData();
     formData.append('UserName', $('#userName').text());
     formData.append('Email', $('#email').text());
     formData.append('MainPhoto', $('#mainPhoto')[0].files[0]);
 
-    formData.append('AdditionalPhoto', listAddtImgs);
+    let listAddtImgs = [];
+    let addtImgs = document.getElementById('addt-imgs');
+    let count = addtImgs.getElementsByTagName('div').length;
+
+    for (let i = 0; i < count - 1; i++) {
+        formData.append('AdditionalPhoto', $('#additionalPhoto' + (i + 1))[0].files[0]);
+    }
+
     formData.append('ProductName', $('#TName').val());
     formData.append('Description', $('#TDescription').val());
     formData.append('Price', $('#TCost').val());
@@ -91,7 +90,6 @@ function SaveProduct() {
         url: '/Product/AddNewProduct',
         processData: false,
         contentType: false,
-        dataType: 'json',
         data: formData,
         success: function () {
 

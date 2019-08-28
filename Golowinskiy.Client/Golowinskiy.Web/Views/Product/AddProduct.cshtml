@@ -134,14 +134,12 @@
                         <label>Основная фотография</label>
                     </div>
                     <div class="col-lg-4">
-                        <form enctype="multipart/form-data">
-                            <div class="upload btn-file" id="DMP">
-                                <input type="file" id="mainPhoto" onchange="attachMainPhoto(this)">
-                                <img id="mainImg" style="width:100px; height:70px" alt="">
-                                <i class="fa fa-upload arrow" aria-hidden="true"></i>
-                                <i class="fa fa-rotate-right"></i>
-                            </div>
-                        </form>
+                        <div class="upload btn-file" id="DMP">
+                            <input type="file" id="mainPhoto" onchange="attachMainPhoto(this)">
+                            <img id="mainImg" style="width:100px; height:70px" alt="">
+                            <i class="fa fa-upload arrow" aria-hidden="true"></i>
+                            <i class="fa fa-rotate-right"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -161,76 +159,76 @@
                             <i class="fa fa-times delete" id="removeImg1" style="visibility:hidden" onclick="RemoveAdditionalImage(this, 1)"></i>
                         </div>
                     </div>
-            </div>
-            <div class="row justify-content-md-center">
-                <div class="col col-lg-4 mb-3 hover_btn"
-                     id="submit-area">
-                    <button type="button" class="btn btn-block btn-primary" id="btn-sbmt" name="submitButton" onclick="SaveProduct()">
-                        Разместить объявление
-                    </button>
-
                 </div>
-            </div>
-
-            <div class="row other_fields">
-                <div class="col-lg-4">
-                    <p id="pp">Необязательные поля</p>
-                </div>
-            </div>
-
-            <div class="form-group">
-
                 <div class="row justify-content-md-center">
-                    <div class="col-lg-4">
-                        <label>Ссылка на видео</label>
-                    </div>
-                    <div class="col-lg-4">
-                        <input type="text" id="youtube">
-                    </div>
-                </div>
+                    <div class="col col-lg-4 mb-3 hover_btn"
+                         id="submit-area">
+                        <button type="button" class="btn btn-block btn-primary" id="btn-sbmt" name="submitButton" onclick="SaveProduct()">
+                            Разместить объявление
+                        </button>
 
-            </div>
-
-            <div class="form-group">
-
-                <div class="row justify-content-md-center">
-                    <div class="col-lg-4">
-                        <label>Тип изделия</label>
-                    </div>
-                    <div class="col-lg-4">
-                        <input type="text" id="TypeProd">
                     </div>
                 </div>
 
-            </div>
-
-            <div class="form-group">
-                <div class="row justify-content-md-center">
+                <div class="row other_fields">
                     <div class="col-lg-4">
-                        <label>Артикул товара</label>
-                    </div>
-                    <div class="col-lg-4">
-                        <input type="text" id="Article">
+                        <p id="pp">Необязательные поля</p>
                     </div>
                 </div>
 
-            </div>
+                <div class="form-group">
 
-
-            <div class="form-group">
-
-                <div class="row justify-content-md-center">
-                    <div class="col-lg-4">
-                        <label>Механизм трансформации</label>
+                    <div class="row justify-content-md-center">
+                        <div class="col-lg-4">
+                            <label>Ссылка на видео</label>
+                        </div>
+                        <div class="col-lg-4">
+                            <input type="text" id="youtube">
+                        </div>
                     </div>
-                    <div class="col-lg-4">
-                        <input type="text" id="TransformMech">
+
+                </div>
+
+                <div class="form-group">
+
+                    <div class="row justify-content-md-center">
+                        <div class="col-lg-4">
+                            <label>Тип изделия</label>
+                        </div>
+                        <div class="col-lg-4">
+                            <input type="text" id="TypeProd">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="row justify-content-md-center">
+                        <div class="col-lg-4">
+                            <label>Артикул товара</label>
+                        </div>
+                        <div class="col-lg-4">
+                            <input type="text" id="Article">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <div class="row justify-content-md-center">
+                        <div class="col-lg-4">
+                            <label>Механизм трансформации</label>
+                        </div>
+                        <div class="col-lg-4">
+                            <input type="text" id="TransformMech">
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
-
-    </div>
 </section>
 
 <script src="~/lib/jquery/dist/jquery.js"></script>

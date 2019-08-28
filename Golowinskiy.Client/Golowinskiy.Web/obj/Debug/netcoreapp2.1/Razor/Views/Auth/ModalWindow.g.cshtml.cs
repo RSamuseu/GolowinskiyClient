@@ -54,7 +54,7 @@ using Golowinskiy.Web.Models;
             WriteLiteral("<div class=\"modal_window\" id=\"myModal\">\r\n    <i class=\"fa fa-times\" data-dismiss=\"modal\" aria-hidden=\"true\" onclick=\"CloseModalWindow()\"></i>\r\n    <div class=\"modal_inner\">\r\n    </div>\r\n</div>\r\n");
             EndContext();
             BeginContext(194, 36, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a341cc3a6e7642a690e90fbf310e3ecd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "be6e4e76584c40389cca1d72c9986cd2", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
