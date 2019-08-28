@@ -186,3 +186,7 @@ h2 {
     .btn-primary > .form-help-text {
         color: red;
     }
+
+#productsSum, #productsCount {
+    display: inline;
+}
