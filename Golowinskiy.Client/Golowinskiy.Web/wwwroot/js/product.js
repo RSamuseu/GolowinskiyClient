@@ -31,14 +31,14 @@ function attachAdditPhoto(input) {
 
             let html = '<div class="upload btn-file" id="additional-div-img' + (countChildDivs + 1) + '">' +
                 '<input id="additionalPhoto' + (countChildDivs + 1) + '" type="file" onchange="attachAdditPhoto(this)">' +
-                '<img id="addtImg' + (countChildDivs + 1) + '" style="width:100px; height:70px" alt="">'+
-                '<i class="fa fa-upload arrow" aria-hidden="true"></i>'+
-                '<i class="fa fa-rotate-right"></i>'+
+                '<img id="addtImg' + (countChildDivs + 1) + '" style="width:100px; height:70px" alt="">' +
+                '<i class="fa fa-upload arrow" aria-hidden="true"></i>' +
+                '<i class="fa fa-rotate-right"></i>' +
                 '</div>' +
-                '<i class="fa fa-times delete" id="removeImg' + (countChildDivs + 1)  + '" style="visibility:hidden" onclick="RemoveAdditionalImage(this, ' + (countChildDivs + 1 ) + ')"></i>';
+                '<i class="fa fa-times delete" id="removeImg' + (countChildDivs + 1) + '" style="visibility:hidden" onclick="RemoveAdditionalImage(this, ' + (countChildDivs + 1) + ')"></i>';
 
             $('#addt-imgs').append(html);
-        }
+        };
 
         reader.readAsDataURL(input.files[0]);
     }

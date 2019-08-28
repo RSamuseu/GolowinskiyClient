@@ -223,6 +223,7 @@ section.advertisement > .btn {
 
 .form-help-text {
     color: red;
+    display: none;
 }
 
 .categories, .categories-mobile {

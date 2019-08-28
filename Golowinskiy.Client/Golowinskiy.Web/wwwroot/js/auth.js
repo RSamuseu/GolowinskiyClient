@@ -6,7 +6,7 @@
             $('.modal_inner').html(data);
         }
     });
-}
+};
 
 function ShowRegistrationWindow() {
     $.ajax({

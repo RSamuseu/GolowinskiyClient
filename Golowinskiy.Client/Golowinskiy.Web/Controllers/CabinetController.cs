@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Golowinskiy.Web.Controllers
 {
-    [Authorize]
     public class CabinetController : Controller
     {
         [HttpGet]
@@ -22,7 +21,7 @@ namespace Golowinskiy.Web.Controllers
             if (isAuthenticate)
                 return View();
             else
-                return Redirect("~/Cabinet/Cabinet");
+                return Redirect("~/Auth/ModalWindow");
         }
 
         [HttpGet]
