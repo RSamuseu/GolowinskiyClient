@@ -4,7 +4,7 @@
 
         reader.onload = function (e) {
             document.getElementById('mainImg').src = e.target.result;
-        }
+        };
 
         reader.readAsDataURL(input.files[0]);
     }
@@ -95,4 +95,13 @@ function SaveProduct() {
 
         }
     });
+}
+
+function IsEmptyTName() {
+    let text = document.getElementById('TName').value;
+    if (text.length === 0) {
+        document.getElementsByClassName('form-help-text')[0].style.display = 'inline';
+    } else {
+        document.getElementsByClassName('form-help-text')[0].style.display = 'none';
+    }
 }

@@ -87,7 +87,7 @@
                         <label>Наименование товара, услуги *</label>
                     </div>
                     <div class="col-lg-4">
-                        <input type="text" id="TName">
+                        <input type="text" id="TName" onblur="IsEmptyTName()" onkeyup="IsEmptyTName()">
                         <span class="form-help-text">
                             <span>
                                 Заполните наименование товара, услуги
