@@ -67,3 +67,4 @@ C:\Users\RSamuseu\Desktop\golowinskiy-client-tmp\golowinskiy\Golowinskiy.Client\
 C:\Users\RSamuseu\Desktop\golowinskiy-client\Golowinskiy.Client\Golowinskiy.Web\obj\Debug\netcoreapp2.1\Razor\Views\Cabinet\Header.g.cshtml.cs
 C:\Users\RSamuseu\Desktop\golowinskiy-client\Golowinskiy.Client\Golowinskiy.Web\obj\Debug\netcoreapp2.1\Razor\Views\Cabinet\Cabinet.g.cshtml.cs
 C:\Users\RSamuseu\Desktop\golowinskiy-client\Golowinskiy.Client\Golowinskiy.Web\obj\Debug\netcoreapp2.1\Razor\Views\Product\AddProduct.g.cshtml.cs
+C:\Users\RSamuseu\Desktop\golowinskiy-client\Golowinskiy.Client\Golowinskiy.Web\obj\Debug\netcoreapp2.1\Razor\Views\Category\Categories.g.cshtml.cs
