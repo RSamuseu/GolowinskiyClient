@@ -43,8 +43,14 @@ namespace GolovinskyAPI.Web.Controllers
         [HttpDelete]
         public IActionResult Delete([FromBody] DeleteCatalogViewModel model)
         {
-            var token = new JwtSecurityTokenHandler().ReadJwtToken(model.AccessToken);
-            int userId = Convert.ToInt32(token.Claims.ToList()[2].Value);
+            string token = "";
+            if(HttpContext.Request.Headers != null)
+            {
+                token = HttpContext.Request.Headers["Authorization"].ToString();
+            }
+
+            var jwtToken = new JwtSecurityTokenHandler().ReadJwtToken(token);
+            int userId = Convert.ToInt32(jwtToken.Claims.ToList()[2].Value);
 
             if(userId != model.CustIdMain)
             {

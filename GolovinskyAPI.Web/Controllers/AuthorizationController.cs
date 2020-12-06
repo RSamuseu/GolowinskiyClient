@@ -61,9 +61,16 @@ namespace GolovinskyAPI.Controllers
             {
                 return NotFound(new { result = false, message = "Не верный логин и пароль" });
             }
+
             var now = DateTime.UtcNow;
 
             var custInfo = repo.GetCustomerFIO(Convert.ToInt32(identity.Claims.ElementAt(2).Value));
+
+            if (custInfo == null)
+            {
+                return NotFound(new { result = false, message = "Не верный логин и пароль" });
+            }
+
             string fio = null;
             if (custInfo != null)
             {
