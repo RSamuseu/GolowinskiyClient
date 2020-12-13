@@ -6,6 +6,7 @@ using GolovinskyAPI.Data.Models.Catalog;
 using GolovinskyAPI.Data.Interfaces;
 using AutoMapper;
 using GolovinskyAPI.Logic.Models.Catalog;
+using Microsoft.Net.Http.Headers;
 
 namespace GolovinskyAPI.Web.Controllers
 {
@@ -44,15 +45,24 @@ namespace GolovinskyAPI.Web.Controllers
         public IActionResult Delete([FromBody] DeleteCatalogViewModel model)
         {
             string token = "";
-            if(HttpContext.Request.Headers != null)
+            if (HttpContext.Request.Headers != null)
             {
-                token = HttpContext.Request.Headers["Authorization"].ToString();
+                token = HttpContext.Request.Headers[HeaderNames.Authorization].ToString();
+            }
+
+            if (string.IsNullOrWhiteSpace(token) == false && token.StartsWith("Bearer ", StringComparison.OrdinalIgnoreCase))
+            {
+                token = token.Substring("Bearer ".Length).Trim();
+            }
+            else
+            {
+                return Unauthorized();
             }
 
             var jwtToken = new JwtSecurityTokenHandler().ReadJwtToken(token);
             int userId = Convert.ToInt32(jwtToken.Claims.ToList()[2].Value);
 
-            if(userId != model.CustIdMain)
+            if (userId != model.CustIdMain)
             {
                 return Forbid();
             }

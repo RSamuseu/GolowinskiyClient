@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
 using GolovinskyAPI.Data.Interfaces;
 using GolovinskyAPI.Data.Models.Products;
 using GolovinskyAPI.Data.Models;
@@ -69,7 +68,6 @@ namespace GolovinskyAPI.Web.Controllers
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpDelete]
-        [Authorize]
         public IActionResult Delete([FromBody] DeleteProductInputModel model)
         {
             if (!ModelState.IsValid)
