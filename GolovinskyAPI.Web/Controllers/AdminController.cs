@@ -71,6 +71,10 @@ namespace GolovinskyAPI.Web.Controllers
 
             // после обновления до 5.0 метод выше включить, а код ниже удалить
             var admin = repo.CheckWebPasswordAdmin(loginModel);
+            if(admin == null)
+            {
+                return NotFound(new { result = false, message = "Не верный логин и пароль" });
+            }
 
             var now = DateTime.UtcNow;
             var identity = _authHandler.GetIdentity(model.UserName , admin.Cust_ID, admin.Role);
