@@ -35,18 +35,16 @@ namespace GolovinskyAPI.Data.Repositories
 
         public LoginAdminOutputModel CheckWebPasswordAdmin(LoginModel input)
         {
-            List<LoginAdminOutputModel> res = new List<LoginAdminOutputModel>();
+            LoginAdminOutputModel res;
             using (IDbConnection db = new SqlConnection(Global.Connection))
             {
                 var response = db.Query<LoginAdminOutputModel>("sp_CheckWebPasswordAdmin",
                     new { UserName = input.UserName, Password = input.Password },
-                    commandType: CommandType.StoredProcedure);
+                    commandType: CommandType.StoredProcedure).First();
+                res = response;
             }
 
-            if (res.Count == 0)
-                return null;
-
-            return res.First();
+            return res;
         }
 
         public bool UploadDatabaseFromTxt(UploadDbFromTxt input)
